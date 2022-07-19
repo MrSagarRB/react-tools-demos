@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Modal1 from "./components/modal1/Modal1";
+import Modal2 from "./components/modal2/Modal2";
+import ReactSelectDemo from "./components/reactSelect/ReactSelectDemo";
+import XlsxDemo from "./components/XlsxDemo/XlsxDemo";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <nav style={{ padding: "50px", display: "flex", gap: "20px" }}>
+        {/* <p>Home</p> */}
+        <Link to="/arddress-select ">Addr Select </Link>
+        <Link to="/mui-modal1 ">Mui modal1 </Link>
+        <Link to="/mui-modal2 ">Mui Modal2 </Link>
+        <Link to="/xlsx-demo">Xlsx Demo</Link>
+      </nav>
+      <Routes>
+        <Route path="/"></Route>
+        <Route path="/arddress-select" element={<ReactSelectDemo />}></Route>
+        <Route path="/mui-modal1" element={<Modal1 />}></Route>
+        <Route path="/mui-modal2" element={<Modal2 />}></Route>
+        <Route path="/xlsx-demo" element={<XlsxDemo />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
